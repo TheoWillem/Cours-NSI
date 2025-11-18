@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours NSI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>📚 Cours NSI</h2>
+        </div>
+        <ul id="course-list" class="course-list">
+            <!-- Les cours seront chargés ici dynamiquement -->
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <div class="welcome">
+            <h1>Bienvenue sur le site de cours NSI</h1>
+            <p>Sélectionnez un cours dans le menu pour commencer.</p>
+            <div class="info-box">
+                <h3>📝 Comment ajouter un cours ?</h3>
+                <ol>
+                    <li>Créez un fichier Markdown (.md) dans le dossier <code>cours/</code></li>
+                    <li>Rédigez votre cours avec la syntaxe Markdown</li>
+                    <li>Ajoutez des blocs de code exécutables avec la syntaxe spéciale</li>
+                </ol>
+                <h4>Exemples de syntaxe :</h4>
+                <pre><code># Titre du cours
+
+## Section
+
+Pour un bloc de code Python exécutable :
+
+```python:executable
+print("Hello World")
+x = 5 + 3
+print(f"5 + 3 = {x}")
+```
+
+Pour un bloc de code simple :
+
+```python
+# Juste du code à afficher
+def fonction():
+    return 42
+```
+</code></pre>
+            </div>
+        </div>
+        <div id="course-content" class="course-content" style="display: none;">
+            <!-- Le contenu du cours sera chargé ici -->
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
