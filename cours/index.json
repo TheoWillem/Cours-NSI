@@ -2,17 +2,5 @@
     {
         "title": "Les variables",
         "file": "variables.md"
-    },
-    {
-        "title": "Introduction à Python",
-        "file": "introduction-python.md"
-    },
-    {
-        "title": "Les Listes en Python",
-        "file": "listes-python.md"
-    },
-    {
-        "title": "Les Fonctions",
-        "file": "fonctions.md"
     }
 ]
