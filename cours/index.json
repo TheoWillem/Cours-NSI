@@ -1,5 +1,9 @@
 [
     {
+        "title": "Les variables",
+        "file": "variables.md"
+    },
+    {
         "title": "Introduction à Python",
         "file": "introduction-python.md"
     },
@@ -10,9 +14,5 @@
     {
         "title": "Les Fonctions",
         "file": "fonctions.md"
-    },
-    {
-        "title": "Test de Gestion des Erreurs",
-        "file": "test-erreurs.md"
     }
 ]
