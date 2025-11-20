@@ -67,6 +67,9 @@ async function loadCourse(filename) {
 
 // Rendre le cours avec gestion des blocs de code exécutables
 async function renderCourse(markdown, container) {
+    // Traiter les sections déroulantes AVANT de parser le markdown
+    markdown = processDetailsBlocks(markdown);
+    
     // Parser le markdown avec marked
     let html = marked.parse(markdown);
     
@@ -93,8 +96,84 @@ async function renderCourse(markdown, container) {
     // Mettre à jour le contenu
     container.innerHTML = temp.innerHTML;
     
+    // Ajouter des gestionnaires d'événements pour les liens internes
+    setupInternalLinks(container);
+    
     // Initialiser Monaco pour chaque bloc exécutable
     await initializeMonacoEditors();
+}
+
+// Gérer les liens internes vers d'autres cours
+function setupInternalLinks(container) {
+    const links = container.querySelectorAll('a[href$=".md"]');
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        // Extraire juste le nom du fichier (enlever ./ ou ../)
+        const filename = href.replace(/^\.\.?\//, '');
+        
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadCourse(filename);
+        });
+        
+        // Ajouter une classe pour le style
+        link.classList.add('internal-link');
+    });
+}
+
+// Compteur pour générer des ID uniques
+let detailsCounter = 0;
+
+// Traiter les blocs déroulants ::: details
+function processDetailsBlocks(markdown) {
+    // Réinitialiser le compteur à chaque traitement
+    detailsCounter = 0;
+    
+    const lines = markdown.split('\n');
+    const result = [];
+    let i = 0;
+    
+    while (i < lines.length) {
+        const line = lines[i];
+        
+        // Détecter le début d'une section :::details
+        if (line.trim().startsWith(':::details')) {
+            const title = line.replace(/^:::details\s+/, '').trim();
+            const detailsId = `details-${++detailsCounter}`;
+            
+            // Collecter le contenu jusqu'au prochain ::: seul sur une ligne
+            const contentLines = [];
+            i++; // Passer à la ligne suivante
+            
+            while (i < lines.length) {
+                const currentLine = lines[i];
+                // Vérifier si c'est une ligne avec UNIQUEMENT :::
+                if (currentLine.trim() === ':::') {
+                    break;
+                }
+                contentLines.push(currentLine);
+                i++;
+            }
+            
+            // Convertir le contenu markdown en HTML
+            const content = contentLines.join('\n').trim();
+            const contentHtml = content ? marked.parse(content) : '';
+            
+            // Générer le HTML de la section déroulante (tout sur une ligne pour éviter les problèmes)
+            result.push(`<div class="details-section" id="${detailsId}"><div class="details-header" onclick="toggleDetails('${detailsId}')"><span class="details-icon">▶</span><span>${title}</span></div><div class="details-content"><div class="details-body">${contentHtml}</div></div></div>`);
+            
+            // Sauter le ::: de fermeture
+            if (i < lines.length && lines[i].trim() === ':::') {
+                i++;
+            }
+        } else {
+            // Ligne normale, la garder telle quelle
+            result.push(line);
+            i++;
+        }
+    }
+    
+    return result.join('\n');
 }
 
 // Créer un bloc de code exécutable
@@ -278,4 +357,12 @@ function resetCode(blockId) {
     const outputDiv = document.getElementById(`${blockId}-output`);
     outputDiv.innerHTML = 'Cliquez sur "Exécuter" pour voir le résultat...';
     outputDiv.classList.add('empty');
+}
+
+// Ouvrir/fermer les sections déroulantes
+function toggleDetails(detailsId) {
+    const section = document.getElementById(detailsId);
+    if (section) {
+        section.classList.toggle('open');
+    }
 }

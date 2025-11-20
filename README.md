@@ -70,7 +70,57 @@ def exemple():
 ```
 ````
 
-### 4. Mettre à jour l'index
+### 4. Créer des sections déroulantes
+
+Pour créer une section qui se déplie au clic (accordéon) :
+
+```markdown
+:::details Titre de la section
+
+Tout le contenu ici sera caché par défaut.
+
+Vous pouvez mettre :
+- Du texte
+- Des listes
+- Des blocs de code
+- Même des blocs exécutables !
+
+```python:executable
+print("Code dans une section déroulante !")
+```
+
+:::
+```
+
+**Important :** 
+- Utilisez `:::details` pour ouvrir
+- Utilisez `:::` pour fermer
+- Le titre doit être sur la même ligne que `:::details`
+
+**Exemple complet :**
+
+```markdown
+## Les Variables
+
+:::details Qu'est-ce qu'une variable ?
+
+Une variable est un espace mémoire qui stocke une valeur.
+
+```python:executable
+ma_variable = 42
+print(ma_variable)
+```
+
+:::
+
+:::details Types de variables
+
+Python a plusieurs types : int, float, str, bool...
+
+:::
+```
+
+### 5. Mettre à jour l'index
 
 Ajoutez votre cours dans `cours/index.json` :
 

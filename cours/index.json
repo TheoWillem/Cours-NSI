@@ -1,9 +1,22 @@
 [
     {
-        "title": "Les variables",
+        "title": "Les Variables",
         "file": "variables.md"
-    },    {
-        "title": "Les boucles",
+    },
+    {
+        "title": "Les Listes en Python",
+        "file": "listes.md"
+    },
+    {
+        "title": "Les Boucles",
         "file": "boucles.md"
+    },
+    {
+        "title": "Le module Turtle",
+        "file": "turtle.md"
+    },
+    {
+        "title": "Les Boucles (suite)",
+        "file": "boucles-suite.md"
     }
 ]

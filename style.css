@@ -270,6 +270,71 @@ body {
     color: #64748b;
 }
 
+/* Sections déroulantes (accordéons) */
+.details-section {
+    margin: 1.5rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.details-header {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.details-header:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #65408b 100%);
+}
+
+.details-icon {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    font-weight: bold;
+}
+
+.details-section.open .details-icon {
+    transform: rotate(90deg);
+}
+
+.details-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.details-section.open .details-content {
+    max-height: 5000px;
+    transition: max-height 0.5s ease-in;
+}
+
+.details-body {
+    padding: 1.5rem;
+    background: #f8fafc;
+}
+
+.details-body > *:first-child {
+    margin-top: 0;
+}
+
+.details-body > *:last-child {
+    margin-bottom: 0;
+}
+
+.details-body pre {
+    background: white;
+}
+
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -284,3 +349,17 @@ body {
         padding: 1rem;
     }
 }
+
+/* Liens internes vers d'autres cours */
+.internal-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.internal-link:hover {
+    border-bottom-color: var(--primary-color);
+}
+
