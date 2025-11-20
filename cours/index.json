@@ -2,5 +2,8 @@
     {
         "title": "Les variables",
         "file": "variables.md"
+    },    {
+        "title": "Les boucles",
+        "file": "boucles.md"
     }
 ]
