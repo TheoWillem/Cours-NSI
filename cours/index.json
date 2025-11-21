@@ -1,19 +1,31 @@
 [
     {
+        "title": "Introduction à Python",
+        "file": "introduction-python.md"
+    },
+    {
         "title": "Les Variables",
         "file": "variables.md"
     },
     {
-        "title": "Les Listes en Python",
-        "file": "listes.md"
+        "title": "Les Conditions",
+        "file": "conditions.md"
     },
     {
         "title": "Les Boucles",
         "file": "boucles.md"
     },
     {
+        "title": "Les Fonctions",
+        "file": "fonctions.md"
+    },
+    {
         "title": "Le module Turtle",
         "file": "turtle.md"
+    },
+    {
+        "title": "Les Listes en Python",
+        "file": "listes.md"
     },
     {
         "title": "Les Boucles (suite)",

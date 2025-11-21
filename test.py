@@ -1,21 +1,21 @@
 import turtle
-t = turtle.Turtle() 
 
-t.forward(100)
-t.right(90)
-t.left(90)
-t.goto(100, 100)
+t = turtle.Turtle()
 
-t.penup()
-t.pendown()
+# Réglages du crayon
 t.pensize(3)
 t.pencolor("red")
 t.speed(0)
 
-t.circle(50)
+# Aller à une position sans dessiner
+t.penup()
+t.goto(-50, 0)
+t.pendown()
 
+# Dessiner un cercle rouge rempli en bleu
 t.fillcolor("blue")
 t.begin_fill()
+t.circle(50)
 t.end_fill()
 
 turtle.done()

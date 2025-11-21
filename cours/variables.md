@@ -13,6 +13,21 @@ boite_oeuf = 12  # On crée la variable boite_oeuf et on lui donne la valeur 12
 print("Nombre d'oeufs dans la boite:", boite_oeuf) # Affiche le contenu de la variable
 ```
 
+On peut également réaffecter une nouvelle valeur à une variable existante :
+
+```python:executable
+boite_oeuf = 12  # On crée la variable boite_oeuf et on lui donne la valeur 12
+print("Nombre d'oeufs dans la boite:", boite_oeuf) # Affiche le contenu de la variable
+boite_oeuf = 10  # On réaffecte une nouvelle valeur à la variable boite_oeuf
+print("Nombre d'oeufs dans la boite après réaffectation:", boite_oeuf) # Affiche le nouveau contenu de la variable
+```
+
+Avant d'aller plus loin il est important de mettre un point d'honneur sur l'importance des noms de variables. En effet le nom d'une variable doit respecter certaines regles:
+- Ne pas contenir d'espace (utiliser le _ pour séparer les mots si besoin)
+- Ne pas commencer par un chiffre
+- Ne pas utiliser de caractères spéciaux (ex: !, ?, %, etc)
+**Qui plus est il est conseillé d'utiliser des noms de variables explicites (ex: boite_oeuf est plus explicite que b) pour faciliter la lecture et la compréhension du code.**
+
 ## Les operations
 Maintenant qu'on sait comment creer une variable voyons comment la manipuler. Pour récuperer la valeur contenue dans la variable on doit simplement ecrire le nom de la variable comme dans l'exemple de l'affichage précédent. Une fois le contenue récupéré il est alors possible diverses opération.
 
